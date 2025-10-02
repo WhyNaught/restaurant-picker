@@ -28,8 +28,49 @@ public class User {
     private String email; 
 
     @Column(name="password")
-    private Optional<String> password; 
+    private String password; 
 
     @Column(name="google_id")
-    private Optional<String> google_id;
+    private String google_id;
+
+    public User() {}
+
+    public User(int id, String auth_type, String username, String email, Optional<String> password, Optional<String> google_id) {
+        this.id = id; 
+        this.auth_type = auth_type; 
+        this.username = username;
+        this.email = email; 
+        this.password = password.get(); 
+        this.google_id = google_id.get(); 
+    }
+
+    // we only have a setter method for the username in case the user wants to change it 
+    public void setUsername(String newUsername) {
+        this.username = newUsername; 
+        return; 
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getEmail() {
+        return this.email; 
+    }
+
+    public String getAuthType() {
+        return this.auth_type; 
+    }
+
+    public String getUsername() {
+        return this.username; 
+    }
+
+    public String getPassword() {
+        return this.password; 
+    }
+
+    public String getGoogleId() {
+        return this.google_id; 
+    }
 }

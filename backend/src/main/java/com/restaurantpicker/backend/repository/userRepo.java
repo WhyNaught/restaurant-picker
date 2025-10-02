@@ -9,5 +9,5 @@ import com.restaurantpicker.backend.models.User;
 @Repository
 public interface userRepo extends JpaRepository<User, Integer> {
     @Query(value="SELECT * FROM users WHERE id=?1", nativeQuery = true)
-    public User getUserById(String id); 
+    public User getUserById(int id); 
 }
